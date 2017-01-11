@@ -1,0 +1,67 @@
+﻿Crispy Potatoes
+Marcus Ng, Shaikat Islam, and Victor Teoh
+HW#57: ...and Keeping It Pointed Up
+2017-01-10
+
+
+By January 17:
+1) Write Woo.java
+    - Variables: player, enemy, gameOver, wins, losses
+    - Methods: battle(), shop()
+    - Prompts the user for a name and hometown when the driver is first run
+    - Display a menu to battle or go to the shop
+    - The battle method will not do anything yet
+    - The shop method will not do anything yet
+2) Write Character.java
+    - Variables: name, hometown, hp, defense, attack
+    - Methods: isAlive(), getName(), getHP(), getDefense(), getAttack(), damage(), attack()
+    - Attack will be an abstract method
+3) Write Player.java (extends Character.java)
+    - Variables: money
+    - Methods: attack(), getMoney()
+4) Write Enemy.java (extends Character.java)
+    - Temporary variable: lyrics (array of strings to use in the attack function)
+    - Methods: attack()
+5) Write the attack functions for Player.java and Enemy.java
+    - The attack functions will be basic
+    - For Player.java, if the user inputs a string, then lower the enemy’s hp
+    - For Enemy.java, use a random number generator from 0 to lyrics.size(), inclusive
+        - Print lyrics[#] to terminal and lower the player’s hp
+    - No rap battle yet
+6) Create the battle method in Woo.java
+    - The battle will create an instance of an enemy
+    - Turn based like YoRPG
+7) Write Item.java
+    - Variables: itemName, price, desc
+    - Methods: getItemName(), getPrice(), getDesc()
+8) Write Shop.java
+    - Variables: ArrayList<Item> items
+    - Methods: buyItem()
+    - Display different items with price and description from items array
+    - If the user has enough money to buy the item
+        - Increase player’s stats based on which item was bought 
+    - Add option to go to shop in Woo.java
+9) Add record deal item
+    - If the user wins enough battles (Woo.java), then allow the user to buy this item if affordable
+10) Bug fixes
+
+
+By January 20:
+1) Write RapAnalyzer.java
+    - Variables: dictionary, sentence
+    - Methods: dictionary(), rhymeCheck(), sentenceAnalyzer(), multiCheck()
+    - Takes a string input and parses it using scanner, assigns it into an array
+    - Compare each element of the parsed string to the word in the phonetic dictionary
+        - If there is a match, then return a % that can be used to scale the damage of the attacker
+    - Make a method that checks for multisyllabic rhymes, based on rhymeCheck()
+2) Write RapLyrics.java
+    - Variables: weakLyrics, strongLyrics
+    - Add a bunch of lyrics to each array (if time allows, perhaps use an API?)
+    - Delete the lyrics variable in Enemy.java
+3) Update the attack methods in Player.java amd Enemy.java to make them work with      RapAnalyzer
+4) Bug fixes
+
+
+By January 23:
+   - Small bug fixes
+   - Project complete
