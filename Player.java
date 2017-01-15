@@ -4,7 +4,7 @@ public class Player extends Character {
 
     // Constructor
     public Player(String setName, String setHometown) {
-	super(100, 50, 50); // Scale this later
+	super(100, 50, 50); // Scale this later (HP, Def, Atk)
 	name = setName;
 	hometown = setHometown;
 	money = 100;

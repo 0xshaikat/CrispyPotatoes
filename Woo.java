@@ -7,10 +7,11 @@ public class Woo{
 
     private Character user;
     private Character enemy;
+    private Shop shop;
     private boolean gameOver;
     private int wins;
     private int losses;
-
+    
     // Constructor
     public Woo() {
 	gameOver = false;
@@ -31,6 +32,7 @@ public class Woo{
 	hometown = Keyboard.readString();
 	System.out.println("");
 	user = new Player(name, hometown);
+	shop = new Shop();
 
 
 	while (!gameOver) {
@@ -38,7 +40,7 @@ public class Woo{
 	    if (wins < 5) {
 
 		// Set user to full HP (might have to make a maxHP var in Character)
-		user.setHP(100);
+		user.setHP(user.maxHP);
 		// Menu
 		System.out.println("========== MENU ==========");
 		int choice;
@@ -48,7 +50,6 @@ public class Woo{
 		choice = Keyboard.readInt();
 		if (choice != 1 && choice != 2 && choice != 0){
 		    System.out.println("Please enter a valid option.");
-		    System.exit(0);// just for now, need a way to go back to menu
 		} else if (choice == 1) {
 		    battle();
 		} else if (choice == 2){
@@ -93,7 +94,7 @@ public class Woo{
 		    System.out.println("You gained $50!\n");
 		    ((Player)user).gainMoney(50);
 		    // Add one to wins
-		    wins ++;
+		    wins++;
 		}
 	    } else if (turn == 1) {
 		System.out.println(enemy.getName() + "'s turn");
@@ -107,7 +108,7 @@ public class Woo{
 		    System.out.println("You lost $30!\n");
 		    ((Player)user).loseMoney(30);
 		    // Add one to losses
-		    losses ++;
+		    losses++;
 		}
 	    }
 	}
@@ -115,14 +116,34 @@ public class Woo{
     }
 
     public void shop() {
-	System.out.println("\nWelcome to the shop!");
-	System.out.println("Items:-------------\n");
+	while (true) {
+	    
+	    // Shop menu
+	    System.out.println("\n========== SHOP ==========");
+	    System.out.println("Type the # of the item you want to buy.\nType '0' to leave the shop.\n");
+	    System.out.println("You have $" + ((Player)user).getMoney() + ".\n");
+	    System.out.println("===== ITEMS =====");
+
+	    // List Items
+	    System.out.println(shop.listItems());
+	    
+	    // User input
+	    int item = Keyboard.readInt();
+	    if (item == 0) {
+		break;
+	    } else {
+		int itemPos = item--;
+		shop.buyItem(((Player)user), item);
+	    }
+	    
+	}    
     }
 
 
     public static void main (String[] args){
 	Woo game = new Woo();
     }
+    
 }
 
 

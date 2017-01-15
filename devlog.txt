@@ -40,12 +40,16 @@ tales of wisdom gained...
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 
+2017-1-14
+--------------------------------------------------------------
+Marcus :: Added shop and item functionality
+==============================================================
+
 2017-1-12
 --------------------------------------------------------------
 Marcus and Victor :: Added Character.java, Player.java, and Enemy.java
 Marcus :: Added a basic battle sequence to Woo.java
 Shaikat :: Worked on the colored text package (for stats) and the rap analyzer.
-
 ==============================================================
 
 2017-1-11

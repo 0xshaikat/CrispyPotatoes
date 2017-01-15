@@ -2,6 +2,7 @@ public abstract class Character {
 
     protected String name;
     protected String hometown;
+    protected int maxHP;
     protected int HP;
     protected int defense;
     protected int attack;
@@ -9,6 +10,7 @@ public abstract class Character {
     // Overloaded constructor
     public Character(int setHP, int setDefense, int setAttack) {
 	HP = setHP;
+	maxHP = setHP;
 	defense = setDefense;
 	attack = setAttack;
     }
@@ -57,6 +59,26 @@ public abstract class Character {
 	return HP;
     }
 
+    // Add HP
+    public int addHP(int hp) {
+	HP += hp;
+	// Set maxHP to include upgraded HP
+        maxHP += hp;
+	return HP;
+    }
+    
+    // Set defense
+    public int addDefense(int def) {
+	defense += def;
+	return defense;
+    }
+
+    // Set attack
+    public int addAttack(int atk) {
+	attack += atk;
+	return attack;
+    }
+    
     // Attack
     public abstract int attack(Character opponent);
 
