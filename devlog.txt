@@ -44,6 +44,7 @@ tales of wisdom gained...
 2017-1-16
 --------------------------------------------------------------
 Marcus :: Added record deal win condition
+Shaikat :: Added master dictionary c06d.txt. All rhyming should be functional now.
 ==============================================================
 
 2017-1-14
