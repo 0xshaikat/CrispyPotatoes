@@ -20,7 +20,23 @@ public class Shop {
 	items.add(Friend);
     }
 
-    // List Item
+    // Add record deal
+    public void addRecordDeal() {
+	Item RecordDeal = new Item("Record Deal", 1000, "A wise choice", 0, 0, 0);
+	items.add(RecordDeal);
+    }
+
+    // Use linear search to check for record deal
+    public boolean hasRecordDeal() {
+	for (Item item: items) {
+	    if (item.getItemName() == "Record Deal") {
+		return true;
+	    }
+	}
+	return false;
+    }
+    
+    // List Items
     public String listItems() {
 	String itemList = "";
 	if (items.size() != 0) {
@@ -56,7 +72,7 @@ public class Shop {
 		user.addHP(upgrades.get(0));
 		user.addDefense(upgrades.get(1));
 		user.addAttack(upgrades.get(2));
-		
+		user.addUpgrade(item);
 		System.out.println("You bought '" + item.getItemName() + "' for $" + item.getPrice() + ".");
 	    } else {
 		System.out.println("You cannot afford this item!");

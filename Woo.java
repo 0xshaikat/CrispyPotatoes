@@ -36,8 +36,13 @@ public class Woo{
 
 
 	while (!gameOver) {
-	    // Temp win condition
-	    if (wins < 5) {
+	    // Add record deal at 5 wins and shop does not have a record deal
+	    if (wins == 5 && !shop.hasRecordDeal()) {
+		shop.addRecordDeal();
+	    }
+
+	    // Does the user own 'Record Deal'?
+	    if (!((Player)user).hasRecordDeal()) {
 
 		// Set user to full HP (might have to make a maxHP var in Character)
 		user.setHP(user.maxHP);
@@ -57,13 +62,11 @@ public class Woo{
 		} else {
 		    break;
 		}
-		
 	    } else {
 		gameOver = true;
-		System.out.println("Congrats! You beat Rap Battle RPG!\nWins: " + wins + "\nLosses: " + losses);
-	    }
+		System.out.println("\n\n========== YOU WIN ==========\nYou beat Rap Battle RPG!\nWins: " + wins + "\nLosses: " + losses);
+	    }	
 	}
-	   
     }
 
     public void battle() {

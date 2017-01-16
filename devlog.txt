@@ -24,6 +24,7 @@ wow! oo!...
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - We realized that we need a maxHP variable in Character.java in order to reset the user's health after a battle to their upgraded HP
+- We decided to use linear search to check for the 'Record Deal' item in the shop's items and the player's upgrades
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,6 +41,11 @@ tales of wisdom gained...
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 
+2017-1-16
+--------------------------------------------------------------
+Marcus :: Added record deal win condition
+==============================================================
+
 2017-1-14
 --------------------------------------------------------------
 Marcus :: Added shop and item functionality
@@ -49,14 +55,14 @@ Marcus :: Added shop and item functionality
 --------------------------------------------------------------
 Marcus and Victor :: Added Character.java, Player.java, and Enemy.java
 Marcus :: Added a basic battle sequence to Woo.java
-Shaikat :: Worked on the colored text package (for stats) and the rap analyzer.
+Shaikat :: Worked on the colored text package (for stats) and the rap analyzer
 ==============================================================
 
 2017-1-11
 --------------------------------------------------------------
 Marcus, Shaikat, Victor :: Worked on Woo.java
 
-- We added the constructor and methods: startGame(), battle(), and shop().
+- We added the constructor and methods: startGame(), battle(), and shop()
 - startGame allows the user to type '1' or '2' to run the battle() or shop() method
 - battle() and shop() do not do anything yet
 ==============================================================
