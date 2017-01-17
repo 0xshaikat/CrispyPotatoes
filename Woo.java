@@ -39,6 +39,7 @@ public class Woo{
 	    // Add record deal at 5 wins and shop does not have a record deal
 	    if (wins == 5 && !shop.hasRecordDeal()) {
 		shop.addRecordDeal();
+		System.out.println("========== RECORD DEAL UNLOCKED IN THE SHOP ==========\n");				  
 	    }
 
 	    // Does the user own 'Record Deal'?

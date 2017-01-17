@@ -16,9 +16,6 @@ public class Player extends Character {
 
     // Get Money
     public int getMoney() {
-	if (money < 0) {
-	    money = 0;
-	}
 	return money;
     }
 
