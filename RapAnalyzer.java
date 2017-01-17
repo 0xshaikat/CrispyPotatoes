@@ -16,22 +16,29 @@ import java.util.*;
 public class RapAnalyzer  {
 
     //instance variables
-    // private static Map<String, String> dictionary;
+    // private  Map<String, String> dictionary;
     private static ArrayList<String> dictionary;
     private static ArrayList<String> sentence;
     private static ArrayList<String> multi;
     private static ArrayList<String> multi2;
+    private static ArrayList<String> multi3;
+    private static ArrayList<String> multi4;
     private static ArrayList<String> phenome1;
     private static ArrayList<String> phenome2;
+    private static ArrayList<Double> confidenceval;    
     private static ArrayList<Integer> colorindex;
     private static ArrayList<String> colors;
     private static ArrayList<Integer> colorindex1;
+
 
     //stats
     private static double confidencerhyme; //one word rhymes
     private static double notstrict; //alliteration
     private static double strict; //alliteration
     private static int cRhyme; //number of multisyllabic rhyming words in two lyrics ("multis")
+    private static double cRhyme2; //less strict version of multisyllabic rhyming (based on function multi2)
+    
+    public static double fireindex; //all of the stats combined to give a point value
     
 
     
@@ -42,8 +49,11 @@ public class RapAnalyzer  {
 	sentence = new ArrayList<String>();
 	multi = new ArrayList<String>();
 	multi2 = new ArrayList<String>();
+	multi3 = new ArrayList<String>();
+	multi4 = new ArrayList<String>();	
 	phenome1 = new ArrayList<String>();
 	phenome2 = new ArrayList<String>();
+	confidenceval = new ArrayList<Double>();
 	colorindex = new ArrayList<Integer>();
        	colorindex1 = new ArrayList<Integer>();
 	colors = new ArrayList<String>();
@@ -51,6 +61,8 @@ public class RapAnalyzer  {
 	strict = 0.0;
 	notstrict = 0.0;
 	cRhyme = 0;
+	cRhyme2 = 0.0  ;
+	fireindex = 0.0  ;
 	
     }
 
@@ -171,6 +183,59 @@ public class RapAnalyzer  {
 			     
 	}
     }
+
+    //vanilla rhyme or not (no SOPS, for use in MULTI2)
+    public static boolean rhymeornot2(String wrd1, String wrd2){
+	int counterS = 0;
+
+	String input3 = wrd1;
+	String input4 = wrd2;
+        int w = dictionary.indexOf(input3);
+        if ( w == -1){
+	    confidencerhyme = 0;
+	    return false;
+	}
+	int x = dictionary.indexOf(input4);
+        if ( x == -1){
+	    confidencerhyme = 0;
+	    return false;
+	}
+	String p3 = dictionary.get(w+1);
+	String p4 = dictionary.get(x+1);
+
+	String three = new StringBuilder(p3).reverse().toString().replaceAll(" ", "");
+	String four = new StringBuilder(p4).reverse().toString().replaceAll(" ", "");
+	
+	if(three.length() > four.length()){
+	    for (int i = 0 ; i < four.length(); i++){
+		if(three.charAt(i) == four.charAt(i)){
+		    counterS ++;
+		}
+	    }
+	}
+	else{
+	    for (int i = 0; i < three.length(); i++){
+		if(three.charAt(i) == four.charAt(i)){
+		    counterS++;
+		}
+	    }
+	}
+	
+	//some semblance of statistical analysis
+	float avg1 = (three.length() + four.length())/2;
+	confidencerhyme = counterS/avg1 * 100;
+	if (Objects.equals(three, four)){
+	    confidencerhyme = 0;
+	    return false;
+	}
+        else if(counterS > 0 && (confidencerhyme > 35.0)){	    
+	    return true;
+	}
+	else{
+	    return false;			     
+	}
+    }    
+    
 
     public static double sentenceanalyzer(String s1){
 	int counter = 0;
@@ -529,13 +594,100 @@ public class RapAnalyzer  {
 
     }
 
+    //for use in multi2
+    public static double getConfidenceRhyme(String word1, String word2){
+	rhymeornot2(word1, word2);
+	return confidencerhyme;
+    }
+
+    //better than the first iteration of multi checker, i think
+    public static float multi2 (String sent1, String sent2){
+	int counterX = 0; //used to check if phenomes match; for every letter add 1;
+	//original arraylists that hold the parsed words from the users inputted strings
+	Scanner sc4 = new Scanner(sent1);
+        sc4.useDelimiter("[/*#.,\\s]");
+	while (sc4.hasNext()){
+	    multi3.add(sc4.next().toUpperCase());
+	}
+
+	Scanner sc5 = new Scanner(sent2);
+        sc5.useDelimiter("[/*#.,\\s]");
+	while(sc5.hasNext()){
+	    multi4.add(sc5.next().toUpperCase());
+	}
+
+	//populate an arraylist with the confidence values of the rhymes from both arraylists
+
+	if(multi3.size() > multi4.size()){
+	    for (int i = multi4.size()-1; i >= 0; i--){
+	        String x = multi3.get(i);
+	        String y = multi4.get(i);		
+		if(rhymeornot2(x,y)){
+		    confidenceval.add(getConfidenceRhyme(x,y));
+		}
+		else{
+		    confidenceval.add(0.0);
+		}
+	    }
+	}
+	else{
+	    for (int x = multi3.size()-1; x >= 0; x--){
+		String w = multi3.get(x);
+		String v = multi4.get(x);
+		if(rhymeornot2(w,v)){
+			confidenceval.add(getConfidenceRhyme(w,v));
+		}
+		else{
+		    confidenceval.add(0.0);
+		}
+	    }
+	}
+	
+	Collections.reverse(confidenceval);
+	
+
+	//counting the number of multis in a sentence, based on a set confidence number for rhymes- 35.0 sounds good
+
+	for (int i = 0; i < confidenceval.size(); i++){
+	    if (confidenceval.get(i) > 35.0){
+		counterX++;
+	    }
+	    else{
+		counterX += 0;
+	    }
+	}
+	String c = counterX + "";
+	//rudimentary stats
+	String stats = c + " word(s) rhymed in these two lyrics.";
+
+
+
+
+	
+
+	    
+
+	System.out.println(multi3);
+	System.out.println(multi4);
+	System.out.println(confidenceval);
+	System.out.println(stats);
+	
+	return (float)cRhyme2;           	
+    }
+
+    //wordlength
+
+    //wordvariety
+	
+	
+    
+
+    
+	
+
 	
 	    
 	
-	
-    
-      
-    
-}//end class
+}     
 	
 	
