@@ -10,7 +10,7 @@ Rap Battle RPG
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-wow we so BOSS bc...
+- We figured out how to determine a rhyme
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,8 +43,9 @@ tales of wisdom gained...
 
 2017-1-17
 --------------------------------------------------------------
-Shaikat (01:28) :: Added delayedString method to color.Text package, for aesthetic purposes.
-Shaikat (01:30) :: Added multi2 method to RapAnalyzer.java, which should be more efficient.
+Marcus and Victor :: Worked on README.md and allowed the user to have negative money
+Shaikat (01:28AM) :: Added delayedString method to color.Text package, for aesthetic purposes.
+Shaikat (01:30AM) :: Added multi2 method to RapAnalyzer.java, which should be more efficient.
 ==============================================================
 
 2017-1-16

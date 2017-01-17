@@ -4,7 +4,7 @@ public class Player extends Character {
 
     private int money = 0;
     private ArrayList<Item> upgrades;
-	
+    private double multiplier = 0.0;
     // Constructor
     public Player(String setName, String setHometown) {
 	super(100, 50, 50); // Scale this later (HP, Def, Atk)
