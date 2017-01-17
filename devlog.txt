@@ -41,6 +41,12 @@ tales of wisdom gained...
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 
+2017-1-17
+--------------------------------------------------------------
+Shaikat (01:28) :: Added delayedString method to color.Text package, for aesthetic purposes.
+Shaikat (01:30) :: Added multi2 method to RapAnalyzer.java, which should be more efficient.
+==============================================================
+
 2017-1-16
 --------------------------------------------------------------
 Marcus :: Added record deal win condition
