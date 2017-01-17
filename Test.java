@@ -1,7 +1,7 @@
 import cs1.Keyboard;
 import color.Text;
 
-public class test{
+public class Test{
     public static void main(String[] args){
 	/*
 	System.out.println("input sentence or whatever.\n");
@@ -43,11 +43,16 @@ public class test{
        	System.out.print(Text.stringSUPER("", "default", "default", "default"));
 	System.out.print("");
 	String multi1 = Keyboard.readString();
-	System.out.println(Text.rStringB("Input MULTI NO. 1"));
+	System.out.println(Text.rStringB("Input MULTI NO. 2"));
        	System.out.print(Text.stringSUPER("", "default", "default", "default"));
 	System.out.print("");
 	String multi2 = Keyboard.readString();
 	RapAnalyzer.multi(multi1, multi2);
+	RapAnalyzer.multi2(multi1, multi2);
+       	System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	Text.delayedString("this is a delayed string", 500L);
+
+
 
 
 
