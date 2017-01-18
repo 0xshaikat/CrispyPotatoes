@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import cs1.Keyboard;
 
 public class Player extends Character {
 
     private int money = 0;
     private ArrayList<Item> upgrades;
     private double multiplier = 0.0;
+    
     // Constructor
     public Player(String setName, String setHometown) {
 	super(100, 50, 50); // Scale this later (HP, Def, Atk)
@@ -34,8 +36,13 @@ public class Player extends Character {
 	money -= loss;
     }
     
-    // TODO: Take user input
+    // Takes user input and uses RapAnalyzer to calculate damage
     public int attack(Character opponent) {
+	System.out.println("Spit a bar...");
+	String bar = Keyboard.readString();
+	System.out.println("\n" + bar + "\n");
+
+	// Calculate this later
 	opponent.lowerHP(20); // Decrease based on rap lyric percentage
 	return 20; // Return damage dealt
     }
