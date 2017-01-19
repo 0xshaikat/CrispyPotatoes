@@ -18,18 +18,7 @@ public class RapAnalyzer  {
     //instance variables
     // private  Map<String, String> dictionary;
     private static ArrayList<String> dictionary;
-    private static ArrayList<String> sentence;
-    private static ArrayList<String> multi;
-    private static ArrayList<String> multi2;
-    private static ArrayList<String> multi3;
-    private static ArrayList<String> multi4;
-    private static ArrayList<String> phenome1;
-    private static ArrayList<String> phenome2;
-    private static ArrayList<Double> confidenceval;    
-    private static ArrayList<Integer> colorindex;
-    private static ArrayList<String> colors;
-    private static ArrayList<Integer> colorindex1;
-
+    
 
     //stats
     private static double confidencerhyme; //one word rhymes
@@ -37,31 +26,20 @@ public class RapAnalyzer  {
     private static double strict; //alliteration
     private static int cRhyme; //number of multisyllabic rhyming words in two lyrics ("multis")
     private static double cRhyme2; //less strict version of multisyllabic rhyming (based on function multi2)
-    
     public static double fireindex; //all of the stats combined to give a point value
+    public static double wordlength;//avg wordlength
+    public static double wordvariety;//avg word variety
     
 
     
-    //constructor for LinkedHashMap
     public RapAnalyzer(){
-	//	dictionary = new LinkedHashMap<String, String>();
 	dictionary= new ArrayList<String>();
-	sentence = new ArrayList<String>();
-	multi = new ArrayList<String>();
-	multi2 = new ArrayList<String>();
-	multi3 = new ArrayList<String>();
-	multi4 = new ArrayList<String>();	
-	phenome1 = new ArrayList<String>();
-	phenome2 = new ArrayList<String>();
-	confidenceval = new ArrayList<Double>();
-	colorindex = new ArrayList<Integer>();
-       	colorindex1 = new ArrayList<Integer>();
-	colors = new ArrayList<String>();
 	confidencerhyme = 0.0;
 	strict = 0.0;
 	notstrict = 0.0;
 	cRhyme = 0;
 	cRhyme2 = 0.0  ;
+	wordlength = 0.0;
 	fireindex = 0.0  ;
 	
     }
@@ -241,6 +219,7 @@ public class RapAnalyzer  {
 	int counter = 0;
 	String input = s1;
 	Scanner sc1 = new Scanner(input);
+	ArrayList<String> sentence = new ArrayList<String>();
 	while (sc1.hasNext()){
 	    sentence.add(sc1.next());
 	}
@@ -374,6 +353,12 @@ public class RapAnalyzer  {
 	//original arraylists that hold the parsed words from the users inputted strings
 	Scanner sc2 = new Scanner(sent1);
         sc2.useDelimiter("[/*#.,\\s]");
+	ArrayList<String> multi = new ArrayList<String>();
+	ArrayList<String> multi2 = new ArrayList<String>();
+	ArrayList<String> phenome1 = new ArrayList<String>();
+	ArrayList<String> phenome2 = new ArrayList<String>();
+	ArrayList<Integer> colorindex = new ArrayList<Integer>();
+	ArrayList<String> colors = new ArrayList<String>();
 	while (sc2.hasNext()){
 	    multi.add(sc2.next().toUpperCase());
 	}
@@ -591,7 +576,6 @@ public class RapAnalyzer  {
 
 
 	return 0.0;
-
     }
 
     //for use in multi2
@@ -604,20 +588,20 @@ public class RapAnalyzer  {
     public static float multi2 (String sent1, String sent2){
 	int counterX = 0; //used to check if phenomes match; for every letter add 1;
 	//original arraylists that hold the parsed words from the users inputted strings
+	ArrayList<String> multi3 = new ArrayList<String>();
+       	ArrayList<String> multi4 = new ArrayList<String>();
+       	ArrayList<Double> confidenceval = new ArrayList<Double>();	
 	Scanner sc4 = new Scanner(sent1);
         sc4.useDelimiter("[/*#.,\\s]");
 	while (sc4.hasNext()){
 	    multi3.add(sc4.next().toUpperCase());
 	}
-
 	Scanner sc5 = new Scanner(sent2);
         sc5.useDelimiter("[/*#.,\\s]");
 	while(sc5.hasNext()){
 	    multi4.add(sc5.next().toUpperCase());
 	}
-
 	//populate an arraylist with the confidence values of the rhymes from both arraylists
-
 	if(multi3.size() > multi4.size()){
 	    for (int i = multi4.size()-1; i >= 0; i--){
 	        String x = multi3.get(i);
@@ -641,13 +625,9 @@ public class RapAnalyzer  {
 		    confidenceval.add(0.0);
 		}
 	    }
-	}
-	
-	Collections.reverse(confidenceval);
-	
-
+	}	
+	Collections.reverse(confidenceval);      
 	//counting the number of multis in a sentence, based on a set confidence number for rhymes- 35.0 sounds good
-
 	for (int i = 0; i < confidenceval.size(); i++){
 	    if (confidenceval.get(i) > 35.0){
 		counterX++;
@@ -660,33 +640,71 @@ public class RapAnalyzer  {
 	//rudimentary stats
 	String stats = c + " word(s) rhymed in these two lyrics.";
 
-
-
-
-	
-
-	    
-
-	System.out.println(multi3);
-	System.out.println(multi4);
-	System.out.println(confidenceval);
-	System.out.println(stats);
-	
 	return (float)cRhyme2;           	
     }
 
-    //wordlength
+    //wordlength 
+    public static double wordlength(String sent){
+	int total= 0;
+       	ArrayList<String> sentence2 = new ArrayList<String>();
+	Scanner sc5 = new Scanner(sent);
+	sc5.useDelimiter("[/*#.,\\s]");
+	while (sc5.hasNext()){
+	    sentence2.add(sc5.next().toUpperCase());
+	}
+	for (int i = 0; i < sentence2.size(); i++){
+	    total+= sentence2.get(i).length();
+	}
+	wordlength = (float)total/(float)sentence2.size();
+
+	System.out.println("wordlength avg: " + wordlength);
+	return wordlength;
+    }
+
 
     //wordvariety
+    public static double wordvariety(String sent1){
+       	HashMap<String, Integer> sentence4 = new HashMap<String, Integer>();
+	int cw1 = 0;
+	Scanner sc6 = new Scanner(sent1);
+	sc6.useDelimiter("[/*#.,\\s]");
+	while(sc6.hasNext()){
+	    cw1++;
+	    String word = sc6.next();
+	    int cw = 0;
+	    if (!sentence4.containsKey(word)){
+		sentence4.put(word, 1);
+	    }
+	    else{
+		cw = sentence4.get(word) + 1;
+		sentence4.remove(word);
+		sentence4.put(word, cw);
+	    }
+	}
+	wordvariety= (float)sentence4.size()/(float)cw1;
+	System.out.println("the variation of words is: " + wordvariety);
+	return wordvariety;
+    }
 	
+	
+
+
+    //fireindex
+    public static double getFireIndex(String sent1, String sent2){
+	RapAnalyzer fire = new RapAnalyzer();
+	double t = sentenceanalyzer(sent1) * 3;
+	double u = sentenceanalyzer(sent2) * 3;
+	double v = multi2(sent1, sent2) * 10;
+	double w = wordlength(sent1);
+	double x = wordlength(sent2);
+	double y = wordvariety(sent1) * 4;
+	double z = wordvariety(sent2) * 4;
+	fireindex = t + u + v + w + x + y + z;
+	System.out.println("fireindex: " + fireindex);
+	return fireindex;
+    }
 	
     
-
-    
-	
-
-	
-	    
 	
 }     
 	
