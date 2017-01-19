@@ -11,9 +11,12 @@ public class Enemy extends Character {
     public int attack(Character opponent) {
 	String[] weakLyrics = RapLyrics.getWeakLyrics();
 	int rnd = (int)(Math.random() *  weakLyrics.length);
-	System.out.println("RANDOM: " + rnd);
-	System.out.println(weakLyrics[rnd]);
-	opponent.lowerHP(20); // Decrease based on rap lyric percentage
+	// System.out.println("RANDOM: " + rnd);
+	// System.out.println(weakLyrics[rnd]);
+	String bar = weakLyrics[rnd];
+	int damage = (int)(RapAnalyzer.getFireIndex(bar, bar));
+	System.out.println(damage);
+	opponent.lowerHP(damage); // Decrease based on rap lyric percentage
 	return 20; // Return damage dealt
     }
     

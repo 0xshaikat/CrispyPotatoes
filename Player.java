@@ -38,13 +38,13 @@ public class Player extends Character {
     
     // Takes user input and uses RapAnalyzer to calculate damage
     public int attack(Character opponent) {
-	System.out.println("Spit a bar...");
+	System.out.println("Spit a bar (one sentence)...");
 	String bar = Keyboard.readString();
-	System.out.println("\n" + bar + "\n");
-
-	// Calculate this later
-	opponent.lowerHP(20); // Decrease based on rap lyric percentage
-	return 20; // Return damage dealt
+	// System.out.println("\n" + bar + "\n");
+	int damage = (int)(RapAnalyzer.getFireIndex(bar, bar));
+	System.out.println(damage);
+	opponent.lowerHP(damage); // Decrease based on rap lyric percentage
+	return damage; // Return damage dealt
     }
 
     // Use linear search to check for record deal
