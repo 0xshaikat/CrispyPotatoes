@@ -42,6 +42,7 @@ tales of wisdom gained...
 ==============================================================
 2017-1-18
 --------------------------------------------------------------
+Marcus and Victor ::  Added RapLyrics.java (temp lyrics), user input, and enemy rap
 Shaikat (12:30AM) :: Added wordlength() functionality.
 Shaikat (8:57PM) :: Added wordvariety() functionality, as well as fireindex() to RapAnalyzer.java
 ==============================================================
