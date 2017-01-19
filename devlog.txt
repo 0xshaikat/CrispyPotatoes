@@ -42,7 +42,8 @@ tales of wisdom gained...
 ==============================================================
 2017-1-19
 --------------------------------------------------------------
-Marcus :: User's 'fire' (damage) is calculated using RapAnalyzer.java.
+Marcus :: User and Enemy's 'fire' (damage) is calculated using RapAnalyzer.java and user now gain/loses
+random amount after battle
 ==============================================================
 
 2017-1-18
