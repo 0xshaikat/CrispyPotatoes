@@ -43,6 +43,7 @@ tales of wisdom gained...
 2017-1-18
 --------------------------------------------------------------
 Shaikat (12:30AM) :: Added wordlength() functionality.
+Shaikat (8:57PM) :: Added wordvariety() functionality, as well as fireindex() to RapAnalyzer.java
 ==============================================================
 
 2017-1-17
