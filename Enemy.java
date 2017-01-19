@@ -7,7 +7,7 @@ public class Enemy extends Character {
 	hometown = setHometown;
     }
 
-    // TODO: Take string from lyric array
+    // Takes string from lyric array and calculates damage
     public int attack(Character opponent) {
 	String[] weakLyrics = RapLyrics.getWeakLyrics();
 	int rnd = (int)(Math.random() *  weakLyrics.length);
@@ -15,9 +15,8 @@ public class Enemy extends Character {
 	// System.out.println(weakLyrics[rnd]);
 	String bar = weakLyrics[rnd];
 	int damage = (int)(RapAnalyzer.getFireIndex(bar, bar));
-	System.out.println(damage);
-	opponent.lowerHP(damage); // Decrease based on rap lyric percentage
-	return 20; // Return damage dealt
+	opponent.lowerHP(damage);
+	return damage; // Return damage dealt
     }
     
 }

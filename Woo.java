@@ -94,9 +94,10 @@ public class Woo{
 		turn = 1;
 		if (!enemy.isAlive()) {
 		    System.out.println("You won the rap battle!");
-		    // Make a random reward var
-		    System.out.println("You gained $50!\n");
-		    ((Player)user).gainMoney(50);
+		    // Gain money (50-150 inclusive)
+		    int money = (int)(Math.random() * 100) + 50;
+		    System.out.println("You gained $" + money + "!\n");
+		    ((Player)user).gainMoney(money);
 		    // Add one to wins
 		    wins++;
 		}
@@ -107,10 +108,11 @@ public class Woo{
 		// Change turn
 		turn = 0;
 		if (!user.isAlive()) {
-		    // Make a random loss var
+		    // Lose money (30-70 inclusive)
+		    int money = (int)(Math.random() * 40) + 30;
 		    System.out.println("You lost the rap battle!");
-		    System.out.println("You lost $30!\n");
-		    ((Player)user).loseMoney(30);
+		    System.out.println("You lost $" + money + "!\n");
+		    ((Player)user).loseMoney(money);
 		    // Add one to losses
 		    losses++;
 		}
