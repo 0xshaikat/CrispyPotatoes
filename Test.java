@@ -47,14 +47,17 @@ public class Test{
        	System.out.print(Text.stringSUPER("", "default", "default", "default"));
 	System.out.print("");
 	String multi2 = Keyboard.readString();
+	System.out.print("");
 	RapAnalyzer.multi(multi1, multi2);
 	RapAnalyzer.multi2(multi1, multi2);
-       	System.out.print(Text.stringSUPER("", "default", "default", "default"));
-	Text.delayedString("this is a delayed string", 500L);
-
-
-
-
+	RapAnalyzer.wordlength(multi1);
+	RapAnalyzer.wordlength(multi2);
+	RapAnalyzer.wordvariety(multi1);
+	System.out.print("");
+	
+       	System.out.print(Text.stringSUPER("", "red", "default", "default"));
+	Text.delayedString("We will now be testing the fireindex, which is crucial to the viability of this project.", 100L);
+	RapAnalyzer.getFireIndex(multi1, multi2);
 
     }
 }
