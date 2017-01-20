@@ -5,14 +5,6 @@ import color.Text;
 import java.util.*;
 
 
-//the objective of this program is to create basic rhyme checker. also necessary is a tool to check for number of multis in a verse, assonance, consonance, and other factors
-//step 1: create a dictionary (done) (uses ArrayList instead of a LinkedHashMap but oh well)
-//step 2: basic rhyme checker (done)
-//step 3: assonance (done)
-//step 4: rhyme checker that uses phenomes (on a word by word basis) (done)
-//step 5: multi checker that uses JUST PHENOMES (not done yet)
- 
-
 public class RapAnalyzer  {
 
     //instance variables
@@ -26,10 +18,12 @@ public class RapAnalyzer  {
     private static double strict; //alliteration
     private static int cRhyme; //number of multisyllabic rhyming words in two lyrics ("multis")
     private static double cRhyme2; //less strict version of multisyllabic rhyming (based on function multi2)
+    private static double cRhyme3; //least strict version of multisyllabic rhyming
     public static double fireindex; //all of the stats combined to give a point value
     public static double wordlength;//avg wordlength
     public static double wordvariety;//avg word variety
-    
+    public static String lyric1;
+    public static String lyric2;
 
     
     public RapAnalyzer(){
@@ -40,6 +34,8 @@ public class RapAnalyzer  {
 	cRhyme = 0;
 	cRhyme2 = 0.0  ;
 	wordlength = 0.0;
+	lyric1 = "\"";
+	lyric2 = "\"";
 	fireindex = 0.0  ;
 	
     }
@@ -481,14 +477,10 @@ public class RapAnalyzer  {
 	    }
 	}
 
-	System.out.println(multi);
-	System.out.println(multi2);
-	System.out.println(phenome1);
-	System.out.println(phenome2);
-	System.out.println("Your lyrics, analyzed");
+
 	// a color match analysis of the sentence (mad cool)
 	Collections.reverse(colorindex);
-	System.out.println(colorindex);
+
 
 	
 	// just some ui stuff
@@ -563,17 +555,9 @@ public class RapAnalyzer  {
 	}
 	lyric2+= "\"";
 	
-	System.out.println(lyric1);
-       	System.out.print(Text.stringSUPER("", "default", "default", "default"));
-       	System.out.println("");
-	System.out.println(lyric2);
        	System.out.print(Text.stringSUPER("", "default", "default", "default"));
 
        	System.out.println("");
-
-        System.out.println("Rhyming words: " + cRhyme);
-	System.out.println("Similar phenomes: " + counterP);
-
 
 	return 0.0;
     }
@@ -643,6 +627,7 @@ public class RapAnalyzer  {
 	return (float)cRhyme2;           	
     }
 
+
     //wordlength 
     public static double wordlength(String sent){
 	int total= 0;
@@ -685,25 +670,43 @@ public class RapAnalyzer  {
 	System.out.println("the variation of words is: " + wordvariety);
 	return wordvariety;
     }
+
+
 	
 	
 
 
-    //fireindex
-    public static double getFireIndex(String sent1, String sent2){
+    //fireindex (one string input)
+    public static double getFireIndex(String sent1){
 	RapAnalyzer fire = new RapAnalyzer();
-	double t = sentenceanalyzer(sent1) * 3;
-	double u = sentenceanalyzer(sent2) * 3;
-	double v = multi2(sent1, sent2) * 10;
-	double w = wordlength(sent1);
-	double x = wordlength(sent2);
-	double y = wordvariety(sent1) * 4;
-	double z = wordvariety(sent2) * 4;
-	fireindex = t + u + v + w + x + y + z;
+	double t = sentenceanalyzer(sent1) * 10;
+	double w = wordlength(sent1) * .5;
+	double y = wordvariety(sent1) * .5;
+	fireindex = (t +  w + y )/3;
 	System.out.println("fireindex: " + fireindex);
 	return fireindex;
     }
-	
+
+    //fireindex (two string inputs)
+    public static double getFireIndex1(String sent1, String sent2){
+	RapAnalyzer fire = new RapAnalyzer();
+	double t = sentenceanalyzer(sent1) * 10;
+	double u = sentenceanalyzer(sent2)* 10;
+	double v = multi2(sent1, sent2)* 10;
+	double w = wordlength(sent1) * .5;
+	double x = wordlength(sent2)* .5;
+	double y = wordvariety(sent1) * .5;
+	double z = wordvariety(sent2) * .5;
+	fireindex = (t+u+v+w+x+y+z)/7;
+	System.out.println("fireindex: " + fireindex);
+	System.out.println("Your lyrics, analyzed for rhyme.");
+	multi(sent1, sent2);
+
+	System.out.println(lyric1);
+	System.out.println(lyric2);
+	return fireindex;
+
+    }
     
 	
 }     
