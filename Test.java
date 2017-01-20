@@ -57,7 +57,9 @@ public class Test{
 	
        	System.out.print(Text.stringSUPER("", "red", "default", "default"));
 	Text.delayedString("We will now be testing the fireindex, which is crucial to the viability of this project.", 100L);
-	RapAnalyzer.getFireIndex(multi1, multi2);
+	RapAnalyzer.getFireIndex(multi1);
+	RapAnalyzer.getFireIndex(multi2);
+	RapAnalyzer.getFireIndex1(multi1, multi2);
 
     }
 }
