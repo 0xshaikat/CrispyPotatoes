@@ -5,7 +5,6 @@ public class Player extends Character {
 
     private int money = 0;
     private ArrayList<Item> upgrades;
-    private double multiplier = 0.0;
     
     // Constructor
     public Player(String setName, String setHometown) {
@@ -41,7 +40,7 @@ public class Player extends Character {
 	System.out.println("Spit a bar (one sentence)...");
 	String bar = Keyboard.readString();
 	// System.out.println("\n" + bar + "\n");
-	int damage = (int)(RapAnalyzer.getFireIndex(bar, bar));
+	int damage = (int)(RapAnalyzer.getFireIndex(bar));
 	System.out.println(damage);
 	opponent.lowerHP(damage); // Decrease based on rap lyric percentage
 	return damage; // Return damage dealt

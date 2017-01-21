@@ -14,7 +14,7 @@ public class Enemy extends Character {
 	// System.out.println("RANDOM: " + rnd);
 	// System.out.println(weakLyrics[rnd]);
 	String bar = weakLyrics[rnd];
-	int damage = (int)(RapAnalyzer.getFireIndex(bar, bar));
+	int damage = (int)(RapAnalyzer.getFireIndex(bar));
 	opponent.lowerHP(damage);
 	return damage; // Return damage dealt
     }

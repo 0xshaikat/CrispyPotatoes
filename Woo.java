@@ -21,7 +21,7 @@ public class Woo{
     }
 
     // Create player by asking for name and hometown params
-    // Menu - 1. Battle, 2. Shop
+    // Menu - 1. Battle, 2. Shop, 3. Exit
     public void startGame() {
 	// Create player
 	String name, hometown;
@@ -138,7 +138,7 @@ public class Woo{
 	    if (item == 0) {
 		break;
 	    } else {
-		int itemPos = item--;
+	        item--;
 		shop.buyItem(((Player)user), item);
 	    }
 	    
