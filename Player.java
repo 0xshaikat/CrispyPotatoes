@@ -8,7 +8,7 @@ public class Player extends Character {
     
     // Constructor
     public Player(String setName, String setHometown) {
-	super(100, 50, 50); // Scale this later (HP, Def, Atk)
+	super(100, 20, 10); // Scale this later (HP, Def, Atk)
 	name = setName;
 	hometown = setHometown;
 	money = 100;
@@ -40,8 +40,9 @@ public class Player extends Character {
 	System.out.println("Spit a bar (one sentence)...");
 	String bar = Keyboard.readString();
 	// System.out.println("\n" + bar + "\n");
-	int damage = (int)(RapAnalyzer.getFireIndex(bar));
-	System.out.println(damage);
+	int damage = (int)(RapAnalyzer.getFireIndex(bar)) + attack;
+	System.out.println(attack);
+	damage -= opponent.defense / 3;
 	opponent.lowerHP(damage); // Decrease based on rap lyric percentage
 	return damage; // Return damage dealt
     }

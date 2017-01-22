@@ -2,7 +2,7 @@ public class Enemy extends Character {
 
     // Constructor
     public Enemy(String setName, String setHometown) {
-	super(100, 50, 50); // Scale this later
+	super(100, 20, 10); // Scale this later
 	name = setName;
 	hometown = setHometown;
     }
@@ -14,7 +14,8 @@ public class Enemy extends Character {
 	// System.out.println("RANDOM: " + rnd);
 	// System.out.println(weakLyrics[rnd]);
 	String bar = weakLyrics[rnd];
-	int damage = (int)(RapAnalyzer.getFireIndex(bar));
+	int damage = (int)(RapAnalyzer.getFireIndex(bar)) + attack;
+	damage -= opponent.defense / 3;
 	opponent.lowerHP(damage);
 	return damage; // Return damage dealt
     }
