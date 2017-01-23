@@ -43,6 +43,7 @@ LESSONS LEARNED
 2017-1-22
 --------------------------------------------------------------
 Marcus :: Added lyrics and bug fixes
+Shaikat :: Added swear word filtering to color package, and introuduced exploration mode (uses Genius API).
 ==============================================================
 
 2017-1-21
