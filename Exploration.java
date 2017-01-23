@@ -41,6 +41,15 @@ public class Exploration{
 	
 
     public static void main(String[] args){
+	System.out.println("Password:");
+	String p = Keyboard.readString();
+	if (p.equalsIgnoreCase("RAPGOD1999")){
+		System.out.println("Dope pass! You're in!");
+	}
+	else{
+		System.out.println("Ya haven't won the game yet!");
+		System.exit(0);
+	}	    
 	System.out.println("Search up bro!");
 	int counter = 1;
 	String q = Keyboard.readString();
