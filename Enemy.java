@@ -9,11 +9,11 @@ public class Enemy extends Character {
 
     // Takes string from lyric array and calculates damage
     public int attack(Character opponent) {
-	String[] weakLyrics = RapLyrics.getWeakLyrics();
-	int rnd = (int)(Math.random() *  weakLyrics.length);
+	String[] lyrics = RapLyrics.getLyrics();
+	int rnd = (int)(Math.random() *  lyrics.length);
 	// System.out.println("RANDOM: " + rnd);
 	// System.out.println(weakLyrics[rnd]);
-	String bar = weakLyrics[rnd];
+	String bar = lyrics[rnd];
 	int damage = (int)(RapAnalyzer.getFireIndex(bar)) + attack;
 	damage -= opponent.defense / 3;
 	opponent.lowerHP(damage);

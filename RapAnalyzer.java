@@ -103,12 +103,12 @@ public class RapAnalyzer  {
 	String input2 = wrd2;
         int x = dictionary.indexOf(input1);
         if ( x == -1){
-	    System.out.println("\"" + input1 + "\"" + " is  not a word by this program's standards. Sorry. Try again.");
-	    System.exit(0);
+	    //	    System.out.println("\"" + input1 + "\"" + " is  not a word by this program's standards. Sorry. Try again.");
+      	    System.exit(0);
 	}
 	int y = dictionary.indexOf(input2);
         if ( y == -1){
-	    System.out.println("\"" + input2 + "\"" + " is  not a word by this program's standards. Sorry. Try again.");
+	    //System.out.println("\"" + input2 + "\"" + " is  not a word by this program's standards. Sorry. Try again.");
 	    System.exit(0);
 	}
 	String p1 = dictionary.get(x+1);
@@ -137,22 +137,22 @@ public class RapAnalyzer  {
 	float avg = (one.length() + two.length())/2;
 	confidencerhyme = counterR/avg * 100;
 	if (Objects.equals(one, two)){
-	    System.out.println(Text.stringSUPER("You can't rhyme a word with the same word.", "default", "red", "underline"));
-	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	    //	    System.out.println(Text.stringSUPER("You can't rhyme a word with the same word.", "default", "red", "underline"));
+	    //	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
 	    return false;
 	}
         else if(counterR > 0 && (confidencerhyme > 35.0)){
-	    System.out.println(Text.stringSUPER("Confidence Level: " + confidencerhyme + "%", "default", "cyan", "bold"));
-	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
-	    System.out.println(Text.stringSUPER("I suppose those two words rhyme.", "default", "blue", "underline"));
-	    System.out.print(Text.stringSUPER("", "default", "default", "default"));	    
+	    //	    System.out.println(Text.stringSUPER("Confidence Level: " + confidencerhyme + "%", "default", "cyan", "bold"));
+	    //	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	    //	    System.out.println(Text.stringSUPER("I suppose those two words rhyme.", "default", "blue", "underline"));
+	    //	    System.out.print(Text.stringSUPER("", "default", "default", "default"));	    
 	    return true;
 	}
 	else{
-	    System.out.println(Text.stringSUPER("Confidence Level: " + confidencerhyme + "%", "default", "red", "bold"));
-	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
-	    System.out.println(Text.stringSUPER("Seems like these two words do not rhyme.","default","red", "underline"));
-            System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	    //	    System.out.println(Text.stringSUPER("Confidence Level: " + confidencerhyme + "%", "default", "red", "bold"));
+	    //	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	    //	    System.out.println(Text.stringSUPER("Seems like these two words do not rhyme.","default","red", "underline"));
+	    //            System.out.print(Text.stringSUPER("", "default", "default", "default"));
 	    return false;
 			     
 	}
@@ -289,18 +289,18 @@ public class RapAnalyzer  {
 	consonance.add(cZ);
 	
 	char[] alphabet = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-	System.out.println(Text.Rcolorbold("\nResults: "));
-        System.out.print(Text.stringSUPER("", "default", "default", "default"));
-	System.out.println(Text.Rcolorbold("Your Sentence/Lyric: " + "\"" + input + "\""));
-        System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	//	System.out.println(Text.Rcolorbold("\nResults: "));
+	//        System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	//	System.out.println(Text.Rcolorbold("Your Sentence/Lyric: " + "\"" + input + "\""));
+	//        System.out.print(Text.stringSUPER("", "default", "default", "default"));
 
 	
 	
 	//where the magic happens
 	for(int i = 0; i < consonance.size() - 1; i ++){
 	    if (consonance.get(i) != 0){
-		System.out.println(Text.Rcolorbold("The letter " + "\"" + alphabet[i] + "\"" + " appeared " + consonance.get(i) + " time(s)."));
-	        System.out.print(Text.stringSUPER("", "default", "default", "default"));
+		//		System.out.println(Text.Rcolorbold("The letter " + "\"" + alphabet[i] + "\"" + " appeared " + consonance.get(i) + " time(s)."));
+		//      System.out.print(Text.stringSUPER("", "default", "default", "default"));
 
 	    }
 	}
@@ -308,32 +308,32 @@ public class RapAnalyzer  {
 	int maxEl = Collections.max(consonance);
 	int maxElement = consonance.indexOf(Collections.max(consonance));
 	
-	System.out.println(Text.stringSUPER("\nYou seem to be fond of the letter" + " " + "\"" + alphabet[maxElement] +"\"" +  ".", "default", "blue", "bold"));
-	System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	//	System.out.println(Text.stringSUPER("\nYou seem to be fond of the letter" + " " + "\"" + alphabet[maxElement] +"\"" +  ".", "default", "blue", "bold"));
+	//	System.out.print(Text.stringSUPER("", "default", "default", "default"));
 	
 
-	String strictmeasure = "Strict Measure of Assonance:"; //num of consonant  words next to each other over the num of words times 100
+	//String strictmeasure = "Strict Measure of Assonance:"; //num of consonant  words next to each other over the num of words times 100
 	strict = (float)counter/(float)sentence.size() * 100;
-	String exp = "(Only counts if consonant words are next to each other)";
+	//String exp = "(Only counts if consonant words are next to each other)";
 
-	String notstrictmeasure = "The Not Strict Measure of Assonance:";
-	String exp2 = "(Based on occurrence of same-lettered words in a sentence, regardless of position)";
+	//String notstrictmeasure = "The Not Strict Measure of Assonance:";
+	//String exp2 = "(Based on occurrence of same-lettered words in a sentence, regardless of position)";
 	//takes the max element over the num of words times 100;
 	int s = sentence.size();
 	notstrict = (float)maxEl/(float)s * 100;
 	
 	if (maxEl != 1){
-	    System.out.println(Text.Rcolorbold("\nMore statistics:"));
-	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
-	    System.out.println(strictmeasure + " " + strict + "% " + exp);
-	    System.out.println("");
-	    System.out.println(notstrictmeasure + " " + notstrict + "% " + exp2);
+	    //	    System.out.println(Text.Rcolorbold("\nMore statistics:"));
+	    //	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	    //	    System.out.println(strictmeasure + " " + strict + "% " + exp);
+	    //	    System.out.println("");
+	    //	    System.out.println(notstrictmeasure + " " + notstrict + "% " + exp2);
 	}
 	else{
-	    System.out.println(Text.stringSUPER("Your sentence is not consonant.", "default", "red", "bold"));
-	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	    //	    System.out.println(Text.stringSUPER("Your sentence is not consonant.", "default", "red", "bold"));
+	    //	    System.out.print(Text.stringSUPER("", "default", "default", "default"));
 
-	    System.out.println(notstrictmeasure + " " + 0 + "% " + exp2);
+	    //  System.out.println(notstrictmeasure + " " + 0 + "% " + exp2);
 	    notstrict = 0;
 	}
 	    
@@ -533,7 +533,7 @@ public class RapAnalyzer  {
 		lyric1 += " ";
 	    }
 	    else{
-		System.out.print(Text.stringSUPER("", "default", "default", "default"));	    
+		//System.out.print(Text.stringSUPER("", "default", "default", "default"));	    
 		lyric1 += multi.get(i);
 		lyric1 += " ";
 	    }
@@ -548,16 +548,16 @@ public class RapAnalyzer  {
 		lyric2 += " ";
 	    }
 	    else{
-		System.out.print(Text.stringSUPER("", "default", "default", "default"));	    
+		//	System.out.print(Text.stringSUPER("", "default", "default", "default"));	    
 		lyric2 += multi2.get(i);
 		lyric2 += " ";
 	    }
 	}
 	lyric2+= "\"";
 	
-       	System.out.print(Text.stringSUPER("", "default", "default", "default"));
+	//       	System.out.print(Text.stringSUPER("", "default", "default", "default"));
 
-       	System.out.println("");
+	//	System.out.println("");
 
 	return 0.0;
     }
@@ -620,9 +620,9 @@ public class RapAnalyzer  {
 		counterX += 0;
 	    }
 	}
-	String c = counterX + "";
+	//String c = counterX + "";
 	//rudimentary stats
-	String stats = c + " word(s) rhymed in these two lyrics.";
+	//String stats = c + " word(s) rhymed in these two lyrics.";
 
 	return (float)cRhyme2;           	
     }
@@ -642,7 +642,7 @@ public class RapAnalyzer  {
 	}
 	wordlength = (float)total/(float)sentence2.size();
 
-	System.out.println("wordlength avg: " + wordlength);
+	//System.out.println("wordlength avg: " + wordlength);
 	return wordlength;
     }
 
@@ -667,7 +667,7 @@ public class RapAnalyzer  {
 	    }
 	}
 	wordvariety= (float)sentence4.size()/(float)cw1;
-	System.out.println("the variation of words is: " + wordvariety);
+	//System.out.println("the variation of words is: " + wordvariety);
 	return wordvariety;
     }
 
@@ -683,7 +683,7 @@ public class RapAnalyzer  {
 	double w = wordlength(sent1) * .5;
 	double y = wordvariety(sent1) * .5;
 	fireindex = (t +  w + y )/3;
-	System.out.println("fireindex: " + fireindex);
+	//System.out.println("fireindex: " + fireindex);
 	return fireindex;
     }
 
@@ -698,12 +698,12 @@ public class RapAnalyzer  {
 	double y = wordvariety(sent1) * .5;
 	double z = wordvariety(sent2) * .5;
 	fireindex = (t+u+v+w+x+y+z)/7;
-	System.out.println("fireindex: " + fireindex);
-	System.out.println("Your lyrics, analyzed for rhyme.");
+	//System.out.println("fireindex: " + fireindex);
+	//System.out.println("Your lyrics, analyzed for rhyme.");
 	multi(sent1, sent2);
 
-	System.out.println(lyric1);
-	System.out.println(lyric2);
+	//	System.out.println(lyric1);
+	//System.out.println(lyric2);
 	return fireindex;
 
     }
