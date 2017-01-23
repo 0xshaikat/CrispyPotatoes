@@ -65,6 +65,7 @@ public class Woo{
 	    } else {
 		gameOver = true;
 		System.out.println("\n\n========== YOU WIN ==========\nYou beat Rap Battle RPG!\nThanks for playing!\nWins: " + wins + "\nLosses: " + losses);
+		System.out.println("The secret password for Exploration.java is RAPGOD1999.");
 	    }	
 	}
     }
