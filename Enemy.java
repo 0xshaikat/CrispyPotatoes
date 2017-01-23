@@ -2,7 +2,7 @@ public class Enemy extends Character {
 
     // Constructor
     public Enemy(String setName, String setHometown) {
-	super(100, 15, 20);
+	super(100, 5, 15);
 	name = setName;
 	hometown = setHometown;
     }
