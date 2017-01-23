@@ -11,6 +11,7 @@ Rap Battle RPG
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - We figured out how to determine a rhyme
+- Learned to parse JSON data and scrape HTML using JSOUP to find rap lyrics.
 
 
 UNRESOLVED ISSUES
@@ -21,11 +22,15 @@ UNRESOLVED ISSUES
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - How to build a shop and analyze lyrics
+- JSON AND HTML PARSING
+- ANSI COLOR CODES
+- PHONETICS!
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - We realized that we need a maxHP variable in Character.java in order to reset the user's health after a battle to their upgraded HP
 - We decided to use linear search to check for the 'Record Deal' item in the shop's items and the player's upgrades
+- Introduced exploration mode.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
