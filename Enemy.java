@@ -2,7 +2,7 @@ public class Enemy extends Character {
 
     // Constructor
     public Enemy(String setName, String setHometown) {
-	super(100, 20, 10); // Scale this later
+	super(100, 15, 20);
 	name = setName;
 	hometown = setHometown;
     }
@@ -12,7 +12,7 @@ public class Enemy extends Character {
 	String[] lyrics = RapLyrics.getLyrics();
 	int rnd = (int)(Math.random() *  lyrics.length);
 	// System.out.println("RANDOM: " + rnd);
-	// System.out.println(weakLyrics[rnd]);
+	System.out.println("'" + lyrics[rnd] + "'");
 	String bar = lyrics[rnd];
 	int damage = (int)(RapAnalyzer.getFireIndex(bar)) + attack;
 	damage -= opponent.defense / 3;

@@ -12,17 +12,21 @@ public class Shop {
 
     // Add items to list
     public void addItems() {
-	Item Poop = new Item("Poop", 100, "Gives you special powers", 25, 5, 10);
-	Item BookOfFire = new Item("Book of fire", 100, "Gives you special powers", 5, 0, 30);
-	Item Friend = new Item("A friend", 100, "Gives you special powers", 30, 20, 0);
-	items.add(Poop);
-	items.add(BookOfFire);
+	Item Hoodie = new Item("Hoodie", 200, "Very comfortable", 0, 15, 0);
+	Item Dictionary = new Item("Dictionary", 250, "More words, more fire", 10, 0, 10);
+	Item Friend = new Item("A friend", 150, "He's got your back", 20, 5, 0);
+	Item Crowd = new Item("Crowd", 400, "They follow you around", 0, 0, 20);
+	Item Epic = new Item("Epic", 999, "Rap God", 100, 100, 100);
 	items.add(Friend);
+	items.add(Hoodie);
+	items.add(Dictionary);
+	items.add(Crowd);
+	items.add(Epic);
     }
 
     // Add record deal
     public void addRecordDeal() {
-	Item RecordDeal = new Item("Record Deal", 1000, "A wise choice", 0, 0, 0);
+	Item RecordDeal = new Item("Record Deal", 700, "A wise choice", 0, 0, 0);
 	items.add(RecordDeal);
     }
 

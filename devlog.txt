@@ -12,14 +12,15 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - We figured out how to determine a rhyme
 
+
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- We need to figure out a way that makes the most sense of adding attack and defense into the calculation of damage
+- We need to figure out a way that makes the most sense of adding attack and defense into the calculation of damage (COMPLETE)
 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- Building a shop and how to analyze lyrics
+- How to build a shop and analyze lyrics
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -29,7 +30,7 @@ MID-DEVELOPMENT DESIGN CHANGES
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Always print and comment your code
-
+- Remember to compile the specific file if the code is not changing
 
  ______   ______   __   __   __       ______   _______     
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
@@ -41,7 +42,7 @@ LESSONS LEARNED
 ==============================================================
 2017-1-22
 --------------------------------------------------------------
-Marcus :: Bug fixes
+Marcus :: Added lyrics and bug fixes
 ==============================================================
 
 2017-1-21

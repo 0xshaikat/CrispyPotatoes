@@ -41,7 +41,7 @@ public class Player extends Character {
 	String bar = Keyboard.readString();
 	// System.out.println("\n" + bar + "\n");
 	int damage = (int)(RapAnalyzer.getFireIndex(bar)) + attack;
-	System.out.println(attack);
+	//System.out.println(attack);
 	damage -= opponent.defense / 3;
 	opponent.lowerHP(damage); // Decrease based on rap lyric percentage
 	return damage; // Return damage dealt

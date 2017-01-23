@@ -680,9 +680,9 @@ public class RapAnalyzer  {
     public static double getFireIndex(String sent1){
 	RapAnalyzer fire = new RapAnalyzer();
 	double t = sentenceanalyzer(sent1) * 10;
-	double w = wordlength(sent1) * .5;
-	double y = wordvariety(sent1) * .5;
-	fireindex = (t +  w + y )/3;
+	double w = wordlength(sent1) * 2;
+	double y = wordvariety(sent1) * 1;
+	fireindex = (t +  w + y )/2;
 	//System.out.println("fireindex: " + fireindex);
 	return fireindex;
     }

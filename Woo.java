@@ -64,7 +64,7 @@ public class Woo{
 		}
 	    } else {
 		gameOver = true;
-		System.out.println("\n\n========== YOU WIN ==========\nYou beat Rap Battle RPG!\nWins: " + wins + "\nLosses: " + losses);
+		System.out.println("\n\n========== YOU WIN ==========\nYou beat Rap Battle RPG!\nThanks for playing!\nWins: " + wins + "\nLosses: " + losses);
 	    }	
 	}
     }
